@@ -67,10 +67,11 @@ ax.add_patch(patchp)
 ax.text(p[0], p[0]+d+0.22, 'FUTURE', c='r', va='bottom', ha='center', bbox={'fc':'w', 'alpha': 0.8, 'ec':'none'})
 ax.text(p[0], p[0]-d-0.22, 'PAST', c='r', va='top', ha='center', bbox={'fc':'w', 'alpha': 0.8, 'ec':'none'})
 
-fig.savefig('plots/lightcone/L_2.pdf')
 
 ax.plot(2,2,'ko')
 ax.text(2.2,2,"P", va='center')
+
+fig.savefig('plots/lightcone/L_2.pdf')
 
 ax.plot(3,4,'go')
 ax.text(3.2,4,"Q", va='center', c='g', bbox={'fc':'w', 'alpha': 0.8, 'ec':'none'})

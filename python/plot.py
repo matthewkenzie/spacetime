@@ -11,7 +11,7 @@ def draw_coord_axes(xrng=(-5,5), yrng=(-5,5), ax=None, color="k", xlab="$x$", yl
     ax.set_xlim(xrng)
     ax.set_ylim(yrng)
 
-def draw_boost_axes(beta, origin=(0,0), ax=None, color='b', xlab="$x'$", ylab="$ct'$", arrows=True, which='both'):
+def draw_boost_axes(beta, origin=(0,0), ax=None, color='b', xlab="$x'$", ylab="$ct'$", arrows=True, which='both', xoff=0, yoff=0):
     ax = ax or plt.gca()
     if which=='both' or which=='x':
         ax.axline( origin, slope=beta,   c=color, lw=1.5 )
@@ -33,11 +33,11 @@ def draw_boost_axes(beta, origin=(0,0), ax=None, color='b', xlab="$x'$", ylab="$
     if arrows:
         if which=='both' or which=='x':
             ax.plot( xax[0], xax[1], c=color, ms=8, marker=(3,0,rott), clip_on=False )
-            ax.text( xax[0], xax[1]-0.05*ydiff, xlab, c=color, ha='right', va='top', fontsize=14, rotation=xrot)
+            ax.text( xax[0]+xoff, xax[1]-0.05*ydiff+xoff, xlab, c=color, ha='right', va='top', fontsize=14, rotation=xrot)
 
         if which=='both' or which=='y':
             ax.plot( yax[0], yax[1], c=color, ms=8, marker=(3,0,rotx), clip_on=False )
-            ax.text( yax[0]-0.01*xdiff, yax[1]+0.03*ydiff, ylab, c=color, ha='right', va='top', fontsize=14, rotation=yrot)
+            ax.text( yax[0]-0.01*xdiff+yoff, yax[1]+0.03*ydiff+yoff, ylab, c=color, ha='right', va='top', fontsize=14, rotation=yrot)
 
 def draw_light_cone( ax=None, orig=(0,0) ):
     ax.axline( orig, slope=1, lw=1, c='r' )
